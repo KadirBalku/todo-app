@@ -150,7 +150,7 @@ h2 {
 }
 
 .todo-check:checked {
-  background-image: url(/assets/img/checked.png);
+  background-image: url(./assets/img/checked.png);
   background-position: center;
 }
 
