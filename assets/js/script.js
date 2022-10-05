@@ -1,5 +1,6 @@
 const todoListStored = localStorage.getItem("todos");
 let todoList = [];
+console.log(todoListStored);
 
 if (todoListStored === null || JSON.parse(todoListStored).length === 0) {
   const todoListHtml = document.body.querySelector("#todo-list");
@@ -96,7 +97,12 @@ delBtn.addEventListener("click", removeDoneTodo);
 
 const filter = document.body.querySelector("#filter-options");
 filter.addEventListener("click", (e) => {
-  todoList = JSON.parse(localStorage.getItem("todos"));
+  if (todoList === null || todoList.length === 0) {
+    todoList = [];
+  } else {
+    todoList = JSON.parse(localStorage.getItem("todos"));
+  }
+
   let newList = [];
   if (e.target.id === "filter-done") {
     todoList.forEach((todo) => {
