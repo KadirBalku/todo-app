@@ -38,7 +38,6 @@ function renderTodo() {
 }
 
 function addTodo() {
-  todoList = JSON.parse(localStorage.getItem("todos"));
   const todoInput = document.body.querySelector("#todo");
   const todoObj = {
     description: todoInput.value,
@@ -51,6 +50,7 @@ function addTodo() {
   }
   storeTodo(todoList);
   todoInput.value = "";
+  todoList = JSON.parse(localStorage.getItem("todos"));
   renderTodo();
   document.body.querySelector("#filter-all").checked = true;
 }
