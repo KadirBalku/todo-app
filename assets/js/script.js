@@ -3,9 +3,10 @@ let todoList = [];
 
 if (todoListStored === null || JSON.parse(todoListStored).length === 0) {
   const todoListHtml = document.body.querySelector("#todo-list");
+  todoList = [];
   todoListHtml.innerHTML = "Have a nice Day!<br> All tasks are done 😊";
 } else {
-  todoList = JSON.parse(todoListStored);
+  todoList = JSON.parse(todoListStored) || [];
   renderTodo();
 }
 
@@ -78,9 +79,9 @@ function removeDoneTodo() {
   document.body.querySelector("#filter-all").checked = true;
 }
 
-function storeTodo(item) {
+function storeTodo(items) {
   localStorage.clear();
-  localStorage.setItem("todos", JSON.stringify(item));
+  localStorage.setItem("todos", JSON.stringify(items));
 }
 
 const addBtn = document.body.querySelector("#add-button");
